@@ -1,0 +1,148 @@
+ideas.md
+myenv/
+.env
+__pycache__/
+# ========================
+# Python
+# ========================
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+var/
+sdist/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+.installed.cfg
+MANIFEST
+
+# ========================
+# Virtual Environments
+# ========================
+myenv/
+venv/
+env/
+ENV/
+.venv/
+.env/
+virtualenv/
+
+# ========================
+# Environment Variables
+# ========================
+.env
+.env.*
+!.env.example
+*.env
+
+# ========================
+# FastAPI / Uvicorn
+# ========================
+*.log
+uvicorn.log
+
+# ========================
+# Uploads & Outputs (temp files)
+# ========================
+uploads/
+outputs/
+*.mp3
+*.mp4
+*.wav
+*.flac
+*.ogg
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.webp
+*.bmp
+*.tiff
+
+# ========================
+# FFmpeg artifacts
+# ========================
+*.ts
+*.m3u8
+ffmpeg_log.txt
+
+# ========================
+# Cloudinary / API keys cache
+# ========================
+cloudinary_cache/
+.cloudinary
+
+# ========================
+# IDEs & Editors
+# ========================
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+.spyproject/
+.ropeproject/
+*.code-workspace
+
+# ========================
+# OS Files
+# ========================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ========================
+# Testing
+# ========================
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+coverage.xml
+*.cover
+.hypothesis/
+test_outputs/
+
+# ========================
+# Jupyter Notebooks
+# ========================
+.ipynb_checkpoints/
+*.ipynb
+
+# ========================
+# Database
+# ========================
+*.db
+*.sqlite
+*.sqlite3
+
+# ========================
+# Docker
+# ========================
+.dockerignore
+docker-compose.override.yml
+
+# ========================
+# Miscellaneous
+# ========================
+*.bak
+*.tmp
+*.temp
+*.cache
+.cache/
+*.pid
