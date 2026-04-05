@@ -2,20 +2,23 @@ import requests
 import time
 import os
 from dotenv import load_dotenv
-load_dotenv()
 
+load_dotenv()
 
 def get_response(req_id, max_retries=40, interval=30):
     headers = {"authorization": f"Bearer {os.getenv('WUBBLE_API_KEY')}"}
     url = f"https://api.wubble.ai/api/v1/request/{req_id}/status"
-
     for attempt in range(max_retries):
         time.sleep(interval)
         response = requests.get(url, headers=headers)
+        if response.status_code != 200:
+            print(f"Attempt {attempt + 1}: HTTP {response.status_code}, retrying...")
+            continue
         data = response.json()
-        if data.get("status") == "completed":
+        status = data.get("status")
+        if status == "completed":
             print("Response ready:", data)
             return data
-        print(f"Attempt {attempt + 1}: still processing... retrying in {interval}s")
-    
+        print(f"Attempt {attempt + 1}: status='{status}', retrying in {interval}s...")
+
     raise TimeoutError(f"Response not ready after {max_retries} retries")

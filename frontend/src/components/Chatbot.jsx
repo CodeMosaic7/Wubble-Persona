@@ -1,12 +1,12 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { uploadStory, chatWithPersona } from '../api/story';
+import { useState, useRef, useEffect } from 'react';
+import { generateStory } from '../api/story';
 import DownloadButton from './DownloadButton';
 import '../styles/Chatbot.css';
 
 const WELCOME = {
   id: 1,
   type: 'bot',
-  content: '◈ Welcome to EchoPersona. Share a moment — type it, photograph it, film it. I\'ll turn it into a cinematic audio story.',
+  content: '◈ Welcome to Persona. Share a moment — type it, photograph it, film it. I\'ll turn it into a cinematic audio story.',
   timestamp: new Date().toLocaleTimeString(),
 };
 
@@ -69,41 +69,47 @@ export default function Chatbot({ isDark }) {
     }]);
 
     try {
-      let data;
-      if (file) {
-        data = await uploadStory(userMessage.content || 'Generate music for this', file);
-      } else {
-        data = await chatWithPersona(userMessage.content);
-      }
+  const data = await generateStory(
+    userMessage.content || "Generate music for this",
+    file
+  );
 
-      const audioUrl = data?.wubble_response?.audio_url
-        || data?.audio_url
-        || data?.wubble_response?.url
-        || null;
+  const audioUrl =
+    data?.audio_url ||
+    data?.wubble_response?.audio_url ||
+    data?.url ||
+    null;
 
-      const botMessage = {
-        id: loadingId,
-        type: 'bot',
-        loading: false,
-        content: audioUrl
-          ? '✦ Your cinematic story is ready. Press play to hear your moment come alive.'
-          : data?.wubble_response?.message || data?.message || JSON.stringify(data),
-        audioUrl,
-        mediaUrl: data?.media_url || null,
-        timestamp: new Date().toLocaleTimeString(),
-      };
+  const botMessage = {
+    id: loadingId,
+    type: "bot",
+    loading: false,
+    content: audioUrl
+      ? "✦ Your cinematic story is ready. Press play to hear your moment come alive."
+      : data?.message || JSON.stringify(data),
+    audioUrl,
+    timestamp: new Date().toLocaleTimeString(),
+  };
 
-      setMessages((prev) => prev.map((m) => m.id === loadingId ? botMessage : m));
-    } catch (err) {
-      setMessages((prev) => prev.map((m) => m.id === loadingId ? {
-        ...m,
-        loading: false,
-        content: `Error: ${err.response?.data?.detail || err.message}`,
-        isError: true,
-      } : m));
-    } finally {
-      setLoading(false);
-    }
+  setMessages((prev) =>
+    prev.map((m) => (m.id === loadingId ? botMessage : m))
+  );
+} catch (err) {
+  setMessages((prev) =>
+    prev.map((m) =>
+      m.id === loadingId
+        ? {
+            ...m,
+            loading: false,
+            content: `Error: ${err.response?.data?.detail || err.message}`,
+            isError: true,
+          }
+        : m
+    )
+  );
+} finally {
+  setLoading(false);
+}
   };
 
   return (
