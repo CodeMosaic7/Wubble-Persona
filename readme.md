@@ -1,29 +1,29 @@
 ![ffrff](image.png)
 Tried run api n number of time but did not get the response(earlier i did).
 
-# 🎭 Persona — AI-Powered Story-to-Video Studio
+# Persona — AI-Powered Story-to-Video Studio
 
 > Turn your moments into cinematic stories.
 > Upload media → Generate AI audio → Create beat-synced videos — all in one flow.
 
 ---
 
-## 🚀 Overview
+## Overview
 
 **Persona** is a full-stack AI application that allows users to:
 
-1. 📸 Upload **images, videos, or audio**
-2. 🎵 Generate **custom music/audio using AI (Wubble API)**
-3. 🎬 Convert that audio + media into **short-form videos**
-4. ⚡ Automatically **sync cuts to beats** using the Beat Sync engine
+1. Upload **images, videos, or audio**
+2. Generate **custom music/audio using AI (Wubble API)**
+3. Convert that audio + media into **short-form videos**
+4. Automatically **sync cuts to beats** using the Beat Sync engine
 
-👉 Designed for creators, marketers, and anyone who wants to produce **high-quality social media content instantly**.
+Designed for creators, marketers, and anyone who wants to produce **high-quality social media content instantly**.
 
 ---
 
-## ✨ Core Features
+## Core Features
 
-### 🎵 1. AI Audio Generation
+### 1. AI Audio Generation
 
 * Powered by **Wubble API**
 * Generates:
@@ -37,7 +37,7 @@ Tried run api n number of time but did not get the response(earlier i did).
 
 ---
 
-### 🖼 2. Multi-Modal Input
+### 2. Multi-Modal Input
 
 Users can upload:
 
@@ -45,11 +45,11 @@ Users can upload:
 * Videos (MP4, MOV)
 * Audio (MP3, WAV)
 
-👉 Mixed media supported for richer storytelling
+Mixed media supported for richer storytelling
 
 ---
 
-### 🤖 3. Intelligent Story Generation
+### 3. Intelligent Story Generation
 
 * Combines user input + prompt
 * Produces:
@@ -59,7 +59,7 @@ Users can upload:
 
 ---
 
-### 🎬 4. Automated Video Creation
+### 4. Automated Video Creation
 
 * Converts media into video using:
 
@@ -69,7 +69,7 @@ Users can upload:
 
 ---
 
-### ⚡ 5. Beat Sync Engine (🔥 Highlight Feature)
+### 5. Beat Sync Engine (Highlight Feature)
 
 Automatically aligns video cuts with music beats.
 
@@ -85,7 +85,7 @@ Automatically aligns video cuts with music beats.
   * Fast cuts on high energy
   * Longer clips on low energy
 
-👉 Result: **professional, rhythm-synced videos**
+Result: **professional, rhythm-synced videos**
 
 ---
 
@@ -99,7 +99,7 @@ Automatically aligns video cuts with music beats.
 
 ---
 
-## 🧠 System Architecture
+## System Architecture
 
 ```text
 User Input (Text + Media)
@@ -121,7 +121,7 @@ Beat-Synced Video Output
 
 ---
 
-## 🏗 Project Structure
+## Project Structure
 
 ```text
 WUBBLE-SOLUTION/
@@ -153,7 +153,7 @@ WUBBLE-SOLUTION/
 
 ---
 
-## 📡 API Endpoints
+## API Endpoints
 
 ### 🔹 Health Check
 
@@ -192,7 +192,7 @@ POST /generate-video
 
 ---
 
-### 🔹 Beat Sync Video (🔥)
+### 🔹 Beat Sync Video 
 
 ```http
 POST /generate-video/beat-sync
@@ -215,7 +215,7 @@ POST /generate-video/beat-sync
 
 ---
 
-## ⚙️ Tech Stack
+## Tech Stack
 
 ### Frontend
 
@@ -290,7 +290,7 @@ npm run dev
 
 ---
 
-## 🚀 Deployment
+## Deployment
 
 ### Backend
 
@@ -302,27 +302,27 @@ npm run dev
 
 ---
 
-## 🎯 Use Cases
+## Use Cases
 
-* 🎥 Content creators (Reels, TikTok)
-* 📢 Marketing & ads
-* 🧑‍💻 AI-powered editing tools
-* 📱 Social media automation
+* Content creators (Reels, TikTok)
+* Marketing & ads
+* AI-powered editing tools
+* Social media automation
 
 ---
 
-## 💡 Key Innovation
+## Key Innovation
 
-### ⚡ Beat-Synced Video Generation
+### Beat-Synced Video Generation
 
 Persona doesn’t just create videos — it creates **rhythm-aware experiences**.
 
-👉 Every cut matches the music
-👉 Every transition feels intentional
+- Every cut matches the music
+- Every transition feels intentional
 
 ---
 
-## ⚠️ Limitations
+## Limitations
 
 * Requires processing time for video rendering
 * Large files may slow down generation
@@ -330,7 +330,7 @@ Persona doesn’t just create videos — it creates **rhythm-aware experiences**
 
 ---
 
-## 🔮 Future Improvements
+## Future Improvements
 
 * Real-time preview before rendering
 * AI scene detection
@@ -340,14 +340,14 @@ Persona doesn’t just create videos — it creates **rhythm-aware experiences**
 
 ---
 
-## 👩‍💻 Author
+## Author
 
-Built by **Manika** 🚀
+Built by **Manika** 
 For Wubble Hackathon
 
 ---
 
-## 🏁 Conclusion
+## Conclusion
 
 Persona simplifies content creation:
 
