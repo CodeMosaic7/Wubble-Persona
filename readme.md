@@ -1,6 +1,3 @@
-![ffrff](image.png)
-Tried run api n number of time but did not get the response(earlier i did).
-
 # Persona — AI-Powered Story-to-Video Studio
 
 > Turn your moments into cinematic stories.
