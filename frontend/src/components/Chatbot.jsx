@@ -70,30 +70,26 @@ export default function Chatbot({ isDark }) {
 
     try {
   const data = await generateStory(
-    userMessage.content || "Generate music for this",
-    file
-  );
+  userMessage.content || "Generate music for this",
+  file
+);
 
-  const audioUrl =
-    data?.audio_url ||
-    data?.wubble_response?.audio_url ||
-    data?.url ||
-    null;
+// data is now { audioUrl, duration, lyricsSections }
+const botMessage = {
+  id: loadingId,
+  type: "bot",
+  loading: false,
+  content: data.audioUrl
+    ? "✦ Your cinematic story is ready. Press play to hear your moment come alive."
+    : "Something went wrong — no audio was returned.",
+  audioUrl: data.audioUrl,
+  lyricsSections: data.lyricsSections,
+  timestamp: new Date().toLocaleTimeString(),
+};
 
-  const botMessage = {
-    id: loadingId,
-    type: "bot",
-    loading: false,
-    content: audioUrl
-      ? "✦ Your cinematic story is ready. Press play to hear your moment come alive."
-      : data?.message || JSON.stringify(data),
-    audioUrl,
-    timestamp: new Date().toLocaleTimeString(),
-  };
-
-  setMessages((prev) =>
-    prev.map((m) => (m.id === loadingId ? botMessage : m))
-  );
+setMessages((prev) =>
+  prev.map((m) => (m.id === loadingId ? botMessage : m))
+);
 } catch (err) {
   setMessages((prev) =>
     prev.map((m) =>

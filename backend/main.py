@@ -11,6 +11,7 @@ from wubble.user_creation import user_validation
 from wubble.chat import chat_with_wubble
 from utitlities.video import create_video
 from utitlities.beat_sync import create_beat_synced_video
+from wubble.get_response import get_response
 
 load_dotenv()
 
@@ -93,7 +94,6 @@ async def generate_video(
         media_paths.append(dest)
 
     # Fetch song from Wubble using req_id
-    from wubble.get_response import get_response
     try:
         song_data = get_response(req_id)
     except TimeoutError:
@@ -113,7 +113,7 @@ async def generate_video(
         with open(audio_path, "wb") as f:
             f.write(audio_resp.content)
 
-    # -- Create video with LLM-planned edit --
+    # Create video with LLM-planned edit 
     output_path = os.path.join(OUTPUT_DIR, f"{req_id}_{platform}.mp4")
     try:
         create_video(
@@ -182,7 +182,6 @@ async def generate_beat_sync_video(
     output_path = os.path.join(OUTPUT_DIR, f"{req_id}_{platform}_beatsync.mp4")
 
     try:
-        from utilities.beat_sync import create_beat_synced_video
         result = create_beat_synced_video(
             media_paths=media_paths,
             audio_path=audio_path,
