@@ -1,0 +1,949 @@
+{
+  "request_id": "38181783-11d7-4855-94f9-d50205e0f61c",
+  "status": "completed",
+  "message": "Vocals generation completed successfully",
+  "generation_type": "vocals_generation",
+  "results": {
+    "custom_data": {
+      "request_id": "38181783-11d7-4855-94f9-d50205e0f61c",
+      "status": "completed",
+      "operation": "generate",
+      "audios": [
+        {
+          "index": 0,
+          "audio_url": "s3://wubble-api-outputs-prod/gen5-audio/38181783-11d7-4855-94f9-d50205e0f61c/0/audio.mp3",
+          "stream_url": null,
+          "duration_ms": 108470,
+          "duration_seconds": 108.47,
+          "lyrics_sections": [
+            {
+              "section_type": "intro"
+            },
+            {
+              "section_type": "verse",
+              "start": 400,
+              "end": 13040,
+              "lines": [
+                {
+                  "start": 400,
+                  "end": 3400,
+                  "text": "The calendar page finally turns",
+                  "words": [
+                    {
+                      "start": 400,
+                      "end": 440,
+                      "text": "The "
+                    },
+                    {
+                      "start": 440,
+                      "end": 1320,
+                      "text": "calendar "
+                    },
+                    {
+                      "start": 1320,
+                      "end": 1960,
+                      "text": "page "
+                    },
+                    {
+                      "start": 1960,
+                      "end": 2800,
+                      "text": "finally "
+                    },
+                    {
+                      "start": 2800,
+                      "end": 3400,
+                      "text": "turns"
+                    }
+                  ]
+                },
+                {
+                  "start": 3640,
+                  "end": 6320,
+                  "text": "A brand new chapter now has begun",
+                  "words": [
+                    {
+                      "start": 3640,
+                      "end": 3840,
+                      "text": "A "
+                    },
+                    {
+                      "start": 3840,
+                      "end": 4280,
+                      "text": "brand "
+                    },
+                    {
+                      "start": 4280,
+                      "end": 4680,
+                      "text": "new "
+                    },
+                    {
+                      "start": 4680,
+                      "end": 5160,
+                      "text": "chapter "
+                    },
+                    {
+                      "start": 5160,
+                      "end": 5560,
+                      "text": "now "
+                    },
+                    {
+                      "start": 5560,
+                      "end": 6000,
+                      "text": "has "
+                    },
+                    {
+                      "start": 6000,
+                      "end": 6320,
+                      "text": "begun"
+                    }
+                  ]
+                },
+                {
+                  "start": 7040,
+                  "end": 10440,
+                  "text": "They say at twenty the world is yours",
+                  "words": [
+                    {
+                      "start": 7040,
+                      "end": 7280,
+                      "text": "They "
+                    },
+                    {
+                      "start": 7280,
+                      "end": 7680,
+                      "text": "say "
+                    },
+                    {
+                      "start": 7680,
+                      "end": 8120,
+                      "text": "at "
+                    },
+                    {
+                      "start": 8120,
+                      "end": 8520,
+                      "text": "twenty "
+                    },
+                    {
+                      "start": 8520,
+                      "end": 8720,
+                      "text": "the "
+                    },
+                    {
+                      "start": 8720,
+                      "end": 9200,
+                      "text": "world "
+                    },
+                    {
+                      "start": 9200,
+                      "end": 9600,
+                      "text": "is "
+                    },
+                    {
+                      "start": 9600,
+                      "end": 10440,
+                      "text": "yours"
+                    }
+                  ]
+                },
+                {
+                  "start": 10680,
+                  "end": 13040,
+                  "text": "Another candle, another door",
+                  "words": [
+                    {
+                      "start": 10680,
+                      "end": 11280,
+                      "text": "Another "
+                    },
+                    {
+                      "start": 11280,
+                      "end": 12360,
+                      "text": "candle, "
+                    },
+                    {
+                      "start": 12360,
+                      "end": 13000,
+                      "text": "another "
+                    },
+                    {
+                      "start": 13000,
+                      "end": 13040,
+                      "text": "door"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "section_type": "verse",
+              "start": 14080,
+              "end": 26640,
+              "lines": [
+                {
+                  "start": 14080,
+                  "end": 16480,
+                  "text": "Typing the code to your own bright fate",
+                  "words": [
+                    {
+                      "start": 14080,
+                      "end": 14480,
+                      "text": "Typing "
+                    },
+                    {
+                      "start": 14480,
+                      "end": 14720,
+                      "text": "the "
+                    },
+                    {
+                      "start": 14720,
+                      "end": 15120,
+                      "text": "code "
+                    },
+                    {
+                      "start": 15120,
+                      "end": 15360,
+                      "text": "to "
+                    },
+                    {
+                      "start": 15360,
+                      "end": 15560,
+                      "text": "your "
+                    },
+                    {
+                      "start": 15560,
+                      "end": 15960,
+                      "text": "own "
+                    },
+                    {
+                      "start": 15960,
+                      "end": 16400,
+                      "text": "bright "
+                    },
+                    {
+                      "start": 16400,
+                      "end": 16480,
+                      "text": "fate"
+                    }
+                  ]
+                },
+                {
+                  "start": 17280,
+                  "end": 20840,
+                  "text": "No time to slow down or hesitate",
+                  "words": [
+                    {
+                      "start": 17280,
+                      "end": 17480,
+                      "text": "No "
+                    },
+                    {
+                      "start": 17480,
+                      "end": 17720,
+                      "text": "time "
+                    },
+                    {
+                      "start": 17720,
+                      "end": 17960,
+                      "text": "to "
+                    },
+                    {
+                      "start": 17960,
+                      "end": 18320,
+                      "text": "slow "
+                    },
+                    {
+                      "start": 18320,
+                      "end": 18760,
+                      "text": "down "
+                    },
+                    {
+                      "start": 18760,
+                      "end": 19160,
+                      "text": "or "
+                    },
+                    {
+                      "start": 19160,
+                      "end": 20840,
+                      "text": "hesitate"
+                    }
+                  ]
+                },
+                {
+                  "start": 20880,
+                  "end": 23320,
+                  "text": "Building the future, you can't wait",
+                  "words": [
+                    {
+                      "start": 20880,
+                      "end": 21280,
+                      "text": "Building "
+                    },
+                    {
+                      "start": 21280,
+                      "end": 21560,
+                      "text": "the "
+                    },
+                    {
+                      "start": 21560,
+                      "end": 22360,
+                      "text": "future, "
+                    },
+                    {
+                      "start": 22360,
+                      "end": 22800,
+                      "text": "you "
+                    },
+                    {
+                      "start": 22800,
+                      "end": 23240,
+                      "text": "can't "
+                    },
+                    {
+                      "start": 23240,
+                      "end": 23320,
+                      "text": "wait"
+                    }
+                  ]
+                },
+                {
+                  "start": 24280,
+                  "end": 26640,
+                  "text": "Let's go out now and celebrate",
+                  "words": [
+                    {
+                      "start": 24280,
+                      "end": 24680,
+                      "text": "Let's "
+                    },
+                    {
+                      "start": 24680,
+                      "end": 24920,
+                      "text": "go "
+                    },
+                    {
+                      "start": 24920,
+                      "end": 25360,
+                      "text": "out "
+                    },
+                    {
+                      "start": 25360,
+                      "end": 25760,
+                      "text": "now "
+                    },
+                    {
+                      "start": 25760,
+                      "end": 25960,
+                      "text": "and "
+                    },
+                    {
+                      "start": 25960,
+                      "end": 26640,
+                      "text": "celebrate"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "section_type": "chorus",
+              "start": 31080,
+              "end": 43720,
+              "lines": [
+                {
+                  "start": 31080,
+                  "end": 33680,
+                  "text": "Oh, the world is yours tonight",
+                  "words": [
+                    {
+                      "start": 31080,
+                      "end": 31720,
+                      "text": "Oh, "
+                    },
+                    {
+                      "start": 31720,
+                      "end": 31920,
+                      "text": "the "
+                    },
+                    {
+                      "start": 31920,
+                      "end": 32400,
+                      "text": "world "
+                    },
+                    {
+                      "start": 32400,
+                      "end": 32840,
+                      "text": "is "
+                    },
+                    {
+                      "start": 32840,
+                      "end": 33440,
+                      "text": "yours "
+                    },
+                    {
+                      "start": 33440,
+                      "end": 33680,
+                      "text": "tonight"
+                    }
+                  ]
+                },
+                {
+                  "start": 34520,
+                  "end": 37880,
+                  "text": "Shining ever so bright",
+                  "words": [
+                    {
+                      "start": 34520,
+                      "end": 35360,
+                      "text": "Shining "
+                    },
+                    {
+                      "start": 35360,
+                      "end": 36200,
+                      "text": "ever "
+                    },
+                    {
+                      "start": 36200,
+                      "end": 37040,
+                      "text": "so "
+                    },
+                    {
+                      "start": 37040,
+                      "end": 37880,
+                      "text": "bright"
+                    }
+                  ]
+                },
+                {
+                  "start": 38760,
+                  "end": 40480,
+                  "text": "Everything will be alright",
+                  "words": [
+                    {
+                      "start": 38760,
+                      "end": 39160,
+                      "text": "Everything "
+                    },
+                    {
+                      "start": 39160,
+                      "end": 39640,
+                      "text": "will "
+                    },
+                    {
+                      "start": 39640,
+                      "end": 40240,
+                      "text": "be "
+                    },
+                    {
+                      "start": 40240,
+                      "end": 40480,
+                      "text": "alright"
+                    }
+                  ]
+                },
+                {
+                  "start": 41320,
+                  "end": 43720,
+                  "text": "Yeah, the world is yours tonight",
+                  "words": [
+                    {
+                      "start": 41320,
+                      "end": 41960,
+                      "text": "Yeah, "
+                    },
+                    {
+                      "start": 41960,
+                      "end": 42160,
+                      "text": "the "
+                    },
+                    {
+                      "start": 42160,
+                      "end": 42800,
+                      "text": "world "
+                    },
+                    {
+                      "start": 42800,
+                      "end": 43040,
+                      "text": "is "
+                    },
+                    {
+                      "start": 43040,
+                      "end": 43680,
+                      "text": "yours "
+                    },
+                    {
+                      "start": 43680,
+                      "end": 43720,
+                      "text": "tonight"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "section_type": "verse",
+              "start": 48000,
+              "end": 60760,
+              "lines": [
+                {
+                  "start": 48000,
+                  "end": 51480,
+                  "text": "Two decades down, a lifetime to see",
+                  "words": [
+                    {
+                      "start": 48000,
+                      "end": 48120,
+                      "text": "Two "
+                    },
+                    {
+                      "start": 48120,
+                      "end": 48760,
+                      "text": "decades "
+                    },
+                    {
+                      "start": 48760,
+                      "end": 49600,
+                      "text": "down, "
+                    },
+                    {
+                      "start": 49600,
+                      "end": 49800,
+                      "text": "a "
+                    },
+                    {
+                      "start": 49800,
+                      "end": 50240,
+                      "text": "lifetime "
+                    },
+                    {
+                      "start": 50240,
+                      "end": 50480,
+                      "text": "to "
+                    },
+                    {
+                      "start": 50480,
+                      "end": 51480,
+                      "text": "see"
+                    }
+                  ]
+                },
+                {
+                  "start": 51520,
+                  "end": 54920,
+                  "text": "Full of passion and energy",
+                  "words": [
+                    {
+                      "start": 51520,
+                      "end": 51960,
+                      "text": "Full "
+                    },
+                    {
+                      "start": 51960,
+                      "end": 52360,
+                      "text": "of "
+                    },
+                    {
+                      "start": 52360,
+                      "end": 52800,
+                      "text": "passion "
+                    },
+                    {
+                      "start": 52800,
+                      "end": 53880,
+                      "text": "and "
+                    },
+                    {
+                      "start": 53880,
+                      "end": 54920,
+                      "text": "energy"
+                    }
+                  ]
+                },
+                {
+                  "start": 55360,
+                  "end": 56720,
+                  "text": "Writing your own great history",
+                  "words": [
+                    {
+                      "start": 55360,
+                      "end": 55560,
+                      "text": "Writing "
+                    },
+                    {
+                      "start": 55560,
+                      "end": 55760,
+                      "text": "your "
+                    },
+                    {
+                      "start": 55760,
+                      "end": 56200,
+                      "text": "own "
+                    },
+                    {
+                      "start": 56200,
+                      "end": 56680,
+                      "text": "great "
+                    },
+                    {
+                      "start": 56680,
+                      "end": 56720,
+                      "text": "history"
+                    }
+                  ]
+                },
+                {
+                  "start": 58120,
+                  "end": 60760,
+                  "text": "The person you were born to be",
+                  "words": [
+                    {
+                      "start": 58120,
+                      "end": 58360,
+                      "text": "The "
+                    },
+                    {
+                      "start": 58360,
+                      "end": 59000,
+                      "text": "person "
+                    },
+                    {
+                      "start": 59000,
+                      "end": 59400,
+                      "text": "you "
+                    },
+                    {
+                      "start": 59400,
+                      "end": 60040,
+                      "text": "were "
+                    },
+                    {
+                      "start": 60040,
+                      "end": 60480,
+                      "text": "born "
+                    },
+                    {
+                      "start": 60480,
+                      "end": 60720,
+                      "text": "to "
+                    },
+                    {
+                      "start": 60720,
+                      "end": 60760,
+                      "text": "be"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "section_type": "bridge",
+              "start": 62240,
+              "end": 75200,
+              "lines": [
+                {
+                  "start": 62240,
+                  "end": 64960,
+                  "text": "Leave all the doubts of youth behind",
+                  "words": [
+                    {
+                      "start": 62240,
+                      "end": 62600,
+                      "text": "Leave "
+                    },
+                    {
+                      "start": 62600,
+                      "end": 63040,
+                      "text": "all "
+                    },
+                    {
+                      "start": 63040,
+                      "end": 63240,
+                      "text": "the "
+                    },
+                    {
+                      "start": 63240,
+                      "end": 63880,
+                      "text": "doubts "
+                    },
+                    {
+                      "start": 63880,
+                      "end": 64080,
+                      "text": "of "
+                    },
+                    {
+                      "start": 64080,
+                      "end": 64920,
+                      "text": "youth "
+                    },
+                    {
+                      "start": 64920,
+                      "end": 64960,
+                      "text": "behind"
+                    }
+                  ]
+                },
+                {
+                  "start": 65760,
+                  "end": 68360,
+                  "text": "A brilliant future you will find",
+                  "words": [
+                    {
+                      "start": 65760,
+                      "end": 66000,
+                      "text": "A "
+                    },
+                    {
+                      "start": 66000,
+                      "end": 66640,
+                      "text": "brilliant "
+                    },
+                    {
+                      "start": 66640,
+                      "end": 67480,
+                      "text": "future "
+                    },
+                    {
+                      "start": 67480,
+                      "end": 67920,
+                      "text": "you "
+                    },
+                    {
+                      "start": 67920,
+                      "end": 68320,
+                      "text": "will "
+                    },
+                    {
+                      "start": 68320,
+                      "end": 68360,
+                      "text": "find"
+                    }
+                  ]
+                },
+                {
+                  "start": 69160,
+                  "end": 71840,
+                  "text": "The stars are all for you aligned",
+                  "words": [
+                    {
+                      "start": 69160,
+                      "end": 69400,
+                      "text": "The "
+                    },
+                    {
+                      "start": 69400,
+                      "end": 69840,
+                      "text": "stars "
+                    },
+                    {
+                      "start": 69840,
+                      "end": 70040,
+                      "text": "are "
+                    },
+                    {
+                      "start": 70040,
+                      "end": 70680,
+                      "text": "all "
+                    },
+                    {
+                      "start": 70680,
+                      "end": 70880,
+                      "text": "for "
+                    },
+                    {
+                      "start": 70880,
+                      "end": 71720,
+                      "text": "you "
+                    },
+                    {
+                      "start": 71720,
+                      "end": 71840,
+                      "text": "aligned"
+                    }
+                  ]
+                },
+                {
+                  "start": 72560,
+                  "end": 75200,
+                  "text": "A new adventure for your mind",
+                  "words": [
+                    {
+                      "start": 72560,
+                      "end": 72800,
+                      "text": "A "
+                    },
+                    {
+                      "start": 72800,
+                      "end": 73440,
+                      "text": "new "
+                    },
+                    {
+                      "start": 73440,
+                      "end": 74280,
+                      "text": "adventure "
+                    },
+                    {
+                      "start": 74280,
+                      "end": 74760,
+                      "text": "for "
+                    },
+                    {
+                      "start": 74760,
+                      "end": 75160,
+                      "text": "your "
+                    },
+                    {
+                      "start": 75160,
+                      "end": 75200,
+                      "text": "mind"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "section_type": "chorus",
+              "start": 77040,
+              "end": 89640,
+              "lines": [
+                {
+                  "start": 77040,
+                  "end": 80000,
+                  "text": "Oh, the world is yours tonight",
+                  "words": [
+                    {
+                      "start": 77040,
+                      "end": 77720,
+                      "text": "Oh, "
+                    },
+                    {
+                      "start": 77720,
+                      "end": 77920,
+                      "text": "the "
+                    },
+                    {
+                      "start": 77920,
+                      "end": 78360,
+                      "text": "world "
+                    },
+                    {
+                      "start": 78360,
+                      "end": 78760,
+                      "text": "is "
+                    },
+                    {
+                      "start": 78760,
+                      "end": 79400,
+                      "text": "yours "
+                    },
+                    {
+                      "start": 79400,
+                      "end": 80000,
+                      "text": "tonight"
+                    }
+                  ]
+                },
+                {
+                  "start": 80480,
+                  "end": 83840,
+                  "text": "Shining ever so bright",
+                  "words": [
+                    {
+                      "start": 80480,
+                      "end": 81320,
+                      "text": "Shining "
+                    },
+                    {
+                      "start": 81320,
+                      "end": 82200,
+                      "text": "ever "
+                    },
+                    {
+                      "start": 82200,
+                      "end": 83000,
+                      "text": "so "
+                    },
+                    {
+                      "start": 83000,
+                      "end": 83840,
+                      "text": "bright"
+                    }
+                  ]
+                },
+                {
+                  "start": 84720,
+                  "end": 87240,
+                  "text": "Everything will be alright",
+                  "words": [
+                    {
+                      "start": 84720,
+                      "end": 85120,
+                      "text": "Everything "
+                    },
+                    {
+                      "start": 85120,
+                      "end": 85560,
+                      "text": "will "
+                    },
+                    {
+                      "start": 85560,
+                      "end": 86200,
+                      "text": "be "
+                    },
+                    {
+                      "start": 86200,
+                      "end": 87240,
+                      "text": "alright"
+                    }
+                  ]
+                },
+                {
+                  "start": 87280,
+                  "end": 89640,
+                  "text": "Yeah, the world is yours tonight",
+                  "words": [
+                    {
+                      "start": 87280,
+                      "end": 87920,
+                      "text": "Yeah, "
+                    },
+                    {
+                      "start": 87920,
+                      "end": 88120,
+                      "text": "the "
+                    },
+                    {
+                      "start": 88120,
+                      "end": 88760,
+                      "text": "world "
+                    },
+                    {
+                      "start": 88760,
+                      "end": 88960,
+                      "text": "is "
+                    },
+                    {
+                      "start": 88960,
+                      "end": 89600,
+                      "text": "yours "
+                    },
+                    {
+                      "start": 89600,
+                      "end": 89640,
+                      "text": "tonight"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "lite": false
+  },
+  "streaming": {
+    "completed_at": "2026-04-07T17:11:27.702Z",
+    "final_audio_url": "https://wubble-api-outputs-prod.s3.ap-southeast-1.amazonaws.com/gen5-audio/38181783-11d7-4855-94f9-d50205e0f61c/0/audio.mp3"
+  },
+  "created_at": "2026-04-07T17:02:50.276Z",
+  "age_minutes": 9.3
+}

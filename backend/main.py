@@ -12,6 +12,9 @@ from wubble.chat import chat_with_wubble
 from utitlities.video import create_video
 from utitlities.beat_sync import create_beat_synced_video
 from wubble.get_response import get_response
+from pathlib import Path
+from components.parsing import parse_wubble_response, build_lyrics_subtitles
+
 
 load_dotenv()
 
@@ -21,9 +24,11 @@ os.makedirs(UPLOAD_DIR, exist_ok=True)
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 RESOLUTION_MAP = {
-    "reels":   "1080x1920",   
-    "youtube": "1920x1080",  
-    "square":  "1080x1080",  
+    "reels": "1080x1920",
+    "tiktok": "1080x1920",
+    "shorts": "1080x1920",
+    "square": "1080x1080",
+    "landscape": "1920x1080",
 }
 
 app = FastAPI(title="Persona")
@@ -67,59 +72,48 @@ async def upload_file(
     song_data = chat_with_wubble(prompt=prompt, images=images, videos=videos, audios=audios)
     return song_data
 
-
 @app.post("/generate-video")
 async def generate_video(
-    req_id: str = Form(...),
     platform: str = Form("reels"),
-    media: Optional[List[UploadFile]] = File(None),   # images + videos together
+    audio_url: str = Form(...),          
+    media: UploadFile = File(...),
 ):
     # Validate inputs
-    if not media or len(media) == 0:
+    if not media:
         raise HTTPException(status_code=400, detail="Please upload at least one image or video")
 
+    if not audio_url.startswith("http"):
+        raise HTTPException(status_code=400, detail="audio_url must be a valid HTTP/HTTPS URL")
+
     allowed_types = ("image/", "video/")
-    for m in media:
-        if not any(m.content_type.startswith(t) for t in allowed_types):
-            raise HTTPException(status_code=400, detail=f"{m.filename} must be an image or video")
+    if not any(media.content_type.startswith(t) for t in allowed_types):
+        raise HTTPException(status_code=400, detail=f"{media.filename} must be an image or video")
 
     resolution = RESOLUTION_MAP.get(platform, "1080x1920")
+    job_id = audio_url.split("/")[-2]     # extracts "38181783-11d7-4855-94f9-d50205e0f61c"
+    audio_path = os.path.join(OUTPUT_DIR, f"{job_id}.mp3")
 
-    # Save uploaded media locally
-    media_paths = []
-    for m in media:
-        dest = os.path.join(UPLOAD_DIR, m.filename)
-        with open(dest, "wb") as f:
-            shutil.copyfileobj(m.file, f)
-        media_paths.append(dest)
-
-    # Fetch song from Wubble using req_id
-    try:
-        song_data = get_response(req_id)
-    except TimeoutError:
-        raise HTTPException(status_code=504, detail="Song not ready yet. Try again later.")
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Failed to fetch song: {str(e)}")
-
-    # Download the audio file locally
-    audio_url = song_data.get("result", {}).get("audio_url")  # adjust key per Wubble response
-    if not audio_url:
-        raise HTTPException(status_code=500, detail="No audio URL in Wubble response")
-
-    import httpx
-    audio_path = os.path.join(OUTPUT_DIR, f"{req_id}.mp3")
-    async with httpx.AsyncClient() as client:
-        audio_resp = await client.get(audio_url)
+    async with httpx.AsyncClient(timeout=60) as client:
+        resp = await client.get(audio_url)
+        if resp.status_code != 200:
+            raise HTTPException(status_code=502, detail=f"Failed to download audio (HTTP {resp.status_code})")
         with open(audio_path, "wb") as f:
-            f.write(audio_resp.content)
+            f.write(resp.content)
+    
+    # Save uploaded media 
+    media_paths = []
+    media_dest = os.path.join(UPLOAD_DIR, media.filename)
+    with open(media_dest, "wb") as f:
+        shutil.copyfileobj(media.file, f)
+    media_paths = [media_dest]
+    # Render video 
+    final_output = os.path.join(OUTPUT_DIR, f"{job_id}_{platform}.mp4")
 
-    # Create video with LLM-planned edit 
-    output_path = os.path.join(OUTPUT_DIR, f"{req_id}_{platform}.mp4")
     try:
         create_video(
             media_paths=media_paths,
             audio_path=audio_path,
-            output_path=output_path,
+            output_path=final_output,
             resolution=resolution,
             platform=platform,
             use_llm=True,
@@ -127,14 +121,15 @@ async def generate_video(
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Video creation failed: {str(e)}")
 
+    # Cleanup 
     for path in media_paths:
-        try:
-            os.remove(path)
-        except Exception:
-            pass
+        try: os.remove(path)
+        except Exception: pass
+    try: os.remove(audio_path)
+    except Exception: pass
 
     return FileResponse(
-        path=output_path,
+        path=final_output,
         media_type="video/mp4",
         filename=f"persona_{platform}.mp4",
     )
@@ -143,14 +138,13 @@ async def generate_video(
 async def generate_beat_sync_video(
     req_id: str = Form(...),
     platform: str = Form("reels"),
-    media: Optional[List[UploadFile]] = File(None),
+    media: UploadFile = File(...),
 ):
     if not media or len(media) == 0:
         raise HTTPException(status_code=400, detail="Upload at least one image or video")
 
-    for m in media:
-        if not any(m.content_type.startswith(t) for t in ("image/", "video/")):
-            raise HTTPException(status_code=400, detail=f"{m.filename} must be image or video")
+    if not media.content_type.startswith(("image/", "video/")):
+        raise HTTPException(status_code=400, detail=f"{media.filename} must be image or video")
 
     resolution = RESOLUTION_MAP.get(platform, "1080x1920")
 
@@ -162,8 +156,6 @@ async def generate_beat_sync_video(
             shutil.copyfileobj(m.file, f)
         media_paths.append(dest)
 
-    # Fetch song
-    from wubble.get_response import get_response
     try:
         song_data = get_response(req_id)
     except TimeoutError:

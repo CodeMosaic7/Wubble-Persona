@@ -2,9 +2,9 @@ ideas.md
 myenv/
 .env
 __pycache__/
-# ========================
+
 # Python
-# ========================
+
 __pycache__/
 *.py[cod]
 *$py.class
@@ -25,9 +25,7 @@ share/python-wheels/
 .installed.cfg
 MANIFEST
 
-# ========================
 # Virtual Environments
-# ========================
 myenv/
 venv/
 env/
@@ -36,9 +34,7 @@ ENV/
 .env/
 virtualenv/
 
-# ========================
 # Environment Variables
-# ========================
 .env
 .env.*
 !.env.example
