@@ -9,7 +9,7 @@ import httpx
 from utitlities.file_upload import upload_to_cloudinary
 from wubble.user_creation import user_validation
 from wubble.chat import chat_with_wubble
-from utitlities.video import create_video
+from Video_generator.video_engine import create_video
 from utitlities.beat_sync import create_beat_synced_video
 from wubble.get_response import get_response
 from pathlib import Path
@@ -53,18 +53,20 @@ async def validate_user(email: str, plan: str):
     return {"message": "User validated successfully", "email": email, "plan": plan}
 
 
-@app.post("/upload")
+@app.post("/upload") #uploads + generates audio/music
 async def upload_file(
     file: UploadFile = File(...),
     prompt: str = Form(...),
 ):
     mime = file.content_type
+    if mime is None:
+        raise HTTPException(status_code=400, detail="Invalid file type")
     if not mime.startswith(("image", "video", "audio")):
         raise HTTPException(status_code=400, detail="Only image/video/audio files allowed")
 
     file_bytes = await file.read()
     media_url = upload_to_cloudinary(file_bytes, mime)
-
+    
     images = [media_url] if mime.startswith("image") else []
     videos = [media_url] if mime.startswith("video") else []
     audios = [media_url] if mime.startswith("audio") else []
@@ -74,9 +76,9 @@ async def upload_file(
 
 @app.post("/generate-video")
 async def generate_video(
-    platform: str = Form("reels"),
-    audio_url: str = Form(...),          
-    media: UploadFile = File(...),
+    platform: str = Form("reels"), # type of video
+    audio_url: str = Form(...),   # link of video       
+    media: UploadFile = File(...), #images and videos
 ):
     # Validate inputs
     if not media:
@@ -86,8 +88,9 @@ async def generate_video(
         raise HTTPException(status_code=400, detail="audio_url must be a valid HTTP/HTTPS URL")
 
     allowed_types = ("image/", "video/")
-    if not any(media.content_type.startswith(t) for t in allowed_types):
-        raise HTTPException(status_code=400, detail=f"{media.filename} must be an image or video")
+    if media.content_type is not None:
+        if not any(media.content_type.startswith(t) for t in allowed_types):
+            raise HTTPException(status_code=400, detail=f"{media.filename} must be an image or video")
 
     resolution = RESOLUTION_MAP.get(platform, "1080x1920")
     job_id = audio_url.split("/")[-2]     # extracts "38181783-11d7-4855-94f9-d50205e0f61c"
@@ -106,7 +109,6 @@ async def generate_video(
     with open(media_dest, "wb") as f:
         shutil.copyfileobj(media.file, f)
     media_paths = [media_dest]
-    # Render video 
     final_output = os.path.join(OUTPUT_DIR, f"{job_id}_{platform}.mp4")
 
     try:
@@ -134,69 +136,3 @@ async def generate_video(
         filename=f"persona_{platform}.mp4",
     )
 
-@app.post("/generate-video/beat-sync")
-async def generate_beat_sync_video(
-    req_id: str = Form(...),
-    platform: str = Form("reels"),
-    media: UploadFile = File(...),
-):
-    if not media or len(media) == 0:
-        raise HTTPException(status_code=400, detail="Upload at least one image or video")
-
-    if not media.content_type.startswith(("image/", "video/")):
-        raise HTTPException(status_code=400, detail=f"{media.filename} must be image or video")
-
-    resolution = RESOLUTION_MAP.get(platform, "1080x1920")
-
-    # Save media
-    media_paths = []
-    for m in media:
-        dest = os.path.join(UPLOAD_DIR, m.filename)
-        with open(dest, "wb") as f:
-            shutil.copyfileobj(m.file, f)
-        media_paths.append(dest)
-
-    try:
-        song_data = get_response(req_id)
-    except TimeoutError:
-        raise HTTPException(status_code=504, detail="Song not ready yet")
-
-    audio_url = song_data.get("result", {}).get("audio_url")
-    if not audio_url:
-        raise HTTPException(status_code=500, detail="No audio URL in Wubble response")
-
-    audio_path = os.path.join(OUTPUT_DIR, f"{req_id}.mp3")
-    async with httpx.AsyncClient() as client:
-        audio_resp = await client.get(audio_url)
-        with open(audio_path, "wb") as f:
-            f.write(audio_resp.content)
-
-    output_path = os.path.join(OUTPUT_DIR, f"{req_id}_{platform}_beatsync.mp4")
-
-    try:
-        result = create_beat_synced_video(
-            media_paths=media_paths,
-            audio_path=audio_path,
-            output_path=output_path,
-            resolution=resolution,
-            platform=platform,
-        )
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Beat sync failed: {str(e)}")
-
-    # Cleanup
-    for path in media_paths:
-        try: os.remove(path)
-        except: pass
-
-    # Return video + metadata in headers
-    return FileResponse(
-        path=output_path,
-        media_type="video/mp4",
-        filename=f"beatsync_{platform}.mp4",
-        headers={
-            "X-BPM": str(result["bpm"]),
-            "X-Total-Cuts": str(result["total_cuts"]),
-            "X-Audio-Duration": str(result["audio_duration"]),
-        }
-    )

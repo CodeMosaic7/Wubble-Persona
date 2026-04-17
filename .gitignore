@@ -40,15 +40,11 @@ virtualenv/
 !.env.example
 *.env
 
-# ========================
 # FastAPI / Uvicorn
-# ========================
 *.log
 uvicorn.log
 
-# ========================
 # Uploads & Outputs (temp files)
-# ========================
 uploads/
 outputs/
 *.mp3
@@ -64,22 +60,16 @@ outputs/
 *.bmp
 *.tiff
 
-# ========================
 # FFmpeg artifacts
-# ========================
 *.ts
 *.m3u8
 ffmpeg_log.txt
 
-# ========================
 # Cloudinary / API keys cache
-# ========================
 cloudinary_cache/
 .cloudinary
 
-# ========================
 # IDEs & Editors
-# ========================
 .vscode/
 .idea/
 *.swp
@@ -90,9 +80,7 @@ cloudinary_cache/
 .ropeproject/
 *.code-workspace
 
-# ========================
 # OS Files
-# ========================
 .DS_Store
 .DS_Store?
 ._*
@@ -102,9 +90,7 @@ ehthumbs.db
 Thumbs.db
 desktop.ini
 
-# ========================
 # Testing
-# ========================
 .pytest_cache/
 .coverage
 htmlcov/
@@ -114,28 +100,20 @@ coverage.xml
 .hypothesis/
 test_outputs/
 
-# ========================
 # Jupyter Notebooks
-# ========================
 .ipynb_checkpoints/
 *.ipynb
 
-# ========================
 # Database
-# ========================
 *.db
 *.sqlite
 *.sqlite3
 
-# ========================
 # Docker
-# ========================
 .dockerignore
 docker-compose.override.yml
 
-# ========================
 # Miscellaneous
-# ========================
 *.bak
 *.tmp
 *.temp
