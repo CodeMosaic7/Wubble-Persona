@@ -353,6 +353,11 @@ Persona simplifies content creation:
 From raw memories to **social-ready videos in seconds**.
 
 Example execution
+
+
+https://github.com/user-attachments/assets/5933960d-2cd9-49a8-9cd8-5836ca8b74c8
+
+
 <video controls src="Screencast From 2026-04-07 23-07-12.mp4" title="Title"></video>
 
 ---
